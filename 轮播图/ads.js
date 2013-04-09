@@ -14,7 +14,7 @@ for(var i = 0,adslistlen = adslist.length; i < adslistlen; i++){
 	}else{
 		adslist[i].className = 'imgwidth';
 	}
-	//console.log(imgh + " " + imgw);
+	console.log(imgh + " " + imgw);
 }
 
 
@@ -125,9 +125,4 @@ function moveAction(){
 //点击不自动移动
 function stopAutomove(){
 	clearInterval(autoMoveObj);
-}
-
-for(var i = 0; i < 3; i++){
-	var a = document.getElementById('a');
-	console.log(a.childNotes[i]);
 }
