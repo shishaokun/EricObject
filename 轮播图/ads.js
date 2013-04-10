@@ -1,7 +1,7 @@
-﻿document.getElementById('adslistcopy').innerHTML = document.getElementById('adslist').innerHTML;
+﻿document.getElementById('carousellistcopy').innerHTML = document.getElementById('carousellist').innerHTML;
 
 //设置图片大小
-var adsbox = document.getElementById('adsview');
+var adsbox = document.getElementById('carouselview');
 var adsboxh = adsbox.offsetHeight;
 var adsboxw = adsbox.offsetWidth;
 //console.log(adsboxh + " " + adsboxw);
@@ -19,12 +19,12 @@ for(var i = 0,adslistlen = adslist.length; i < adslistlen; i++){
 
 
 var keep = 3000;//间隔时间
-var speed = 10;//每次移动的间隔时间
-var Space = 5;//每次移动的距离
+var speed = 20;//每次移动的间隔时间
+var Space = 20;//每次移动的距离
 var lockMove = false;//移动是否被锁住
 var com = 0;//移动过的距离
-var adsview = document.getElementById('adsview');//获取移动对象
-var firstlistwid = document.getElementById('adslist').offsetWidth;//获取第一个list的宽度
+var adsview = document.getElementById('carouselview');//获取移动对象
+var firstlistwid = document.getElementById('carousellist').offsetWidth;//获取第一个list的宽度
 var size = adsview.offsetWidth;//box宽度
 var autoMoveObj;//自动移动obj
 
@@ -59,29 +59,25 @@ function GoDown(){
 	moveOrNot('l');
 }
 
-//移动一点作为移动锁住的标志
+//是否变换初始位置
 function MoveFlag(flag){
 	if(flag == 'r'){
 		console.log('moveFlagRight');
 		if(adsview.scrollLeft <= 0){
 			adsview.scrollLeft = adsview.scrollLeft + firstlistwid;
 		}
-		adsview.scrollLeft -= Space;
-		console.log('MoveRight');
-	}else if(flag == 'l'){
+	}else{
 		console.log('moveFlagLeft' + " " + adsview.scrollLeft + " " + firstlistwid);
 		if(adsview.scrollLeft >= firstlistwid){
 			console.log('changeleft');
 			adsview.scrollLeft = adsview.scrollLeft - firstlistwid;
 		}
-		adsview.scrollLeft += Space;
-		console.log('MoveLeft');
 	}
 }
 
-//继续移动否
+//是否移动
 function moveOrNot(flag){
-	if(adsview.scrollLeft%size != 0){
+	if(lockMove){
 		com = adsview.offsetLeft%size;
 		com = (flag == 'r') ? (-com) : (size - com);
 		moveAction();
@@ -93,6 +89,7 @@ function moveOrNot(flag){
 
 //移动
 function moveAction(){
+	console.log('in');
 	var comdis;//移动距离
 	if(com == 0){
 		lockMove = false;
@@ -125,9 +122,4 @@ function moveAction(){
 //点击不自动移动
 function stopAutomove(){
 	clearInterval(autoMoveObj);
-}
-
-for(var i = 0; i < 3; i++){
-	var a = document.getElementById('a');
-	console.log(a.childNotes[i]);
 }

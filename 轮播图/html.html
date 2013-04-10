@@ -2,57 +2,72 @@
 <html>
 	<head>
 		<title>轮播图</title>
-		<link rel="stylesheet" type="text/css" href="../base.css">
+		<link rel="stylesheet" type="text/css" href="base.css">
 		<link rel="stylesheet" type="text/css" href="css.css">
-		<!--<style>
-		
-			#box {
-	width: 400px;
-	height: 300px;
+		<style>
+		<!--
+/* 需要自建的 */
+#box {
+	width: 410px;
+	height: 310px;
 	margin: 0 auto;
 	background: green;
 }
 
-#ads ul {
+#carouselbox{
+	width: 4000px;
 	height: 300px;
 }
 
-#ads .adsimg ,#ads li{
+#carousellist li {
+	line-height: 290px;
+}
+
+#carousellist li, #carouselview {
+	height: 300px;
 	width: 400px;
 }
-		</style>-->
+
+.imgheight{
+	height: 300px;
+}
+
+.imgwidth{
+	width: 400px;
+}-->
+		</style>
 
 	</head>
 		
 	<body>
 		<div id="box">
-			<div id="ads">
+			<div id="carousel">
 				<span class="arrow arrowl"><
 				</span>
 				<span class="arrow arrowr">>
 				</span>
-				<div id="adsview">			
-					<div id="adsbox">
-						<ul id="adslist">
+				<div id="carouselview">			
+					<div id="carouselbox">
+						<ul id="carousellist">
 							<li>
 								<a href="#" class="">
-									<img src="img/5.jpg" class="adsimg"/>
+									<img src="img/5.jpg"/>
 								</a>
 							</li>
 							<li>
-								<img src="img/2.jpg" class="adsimg"/>
+								<img src="img/2.jpg"/>
 							</li>
 							<li>
-								<img src="img/3.jpg" class="adsimg"/>
+								<img src="img/3.jpg"/>
 							</li>
 							<li>
-								<img src="img/4.jpg" class="adsimg"/>
+								<img src="img/4.jpg"/>
 							</li>
 							<li>
-								<img src="img/5.jpg" class="adsimg"/>
+								<img src="img/5.jpg"/>
 							</li>
 						</ul>
-						<ul id="adslistcopy">
+						<ul id="carousellistcopy">
 						</ul>
 					</div>
 				</div>			
@@ -61,18 +76,6 @@
 			<button onclick="Automove()">点击开始自动移动</button>
 		</div>
 		
-		<div id="a">
-			
-				<p index="1">
-				</p>
-				<p index="2">
-				</p>
-				<p index="3">
-				</p>
-				<p index="4">
-				</p>
-			
-		</div>
 	</body>
 	<script type="text/javascript" src="ads.js"></script>
 	
