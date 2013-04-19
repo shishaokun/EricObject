@@ -1,4 +1,4 @@
-﻿document.getElementById('carousellistcopy').innerHTML = document.getElementById('carousellist').innerHTML;
+document.getElementById('carousellistcopy').innerHTML = document.getElementById('carousellist').innerHTML;
 
 //设置图片大小
 var adsbox = document.getElementById('carouselview');
@@ -27,6 +27,7 @@ var adsview = document.getElementById('carouselview');//获取移动对象
 var firstlistwid = document.getElementById('carousellist').offsetWidth;//获取第一个list的宽度
 var size = adsview.offsetWidth;//box宽度
 var autoMoveObj;//自动移动obj
+var moveActionObj;//每次移动obj
 
 Automove();
 
@@ -34,7 +35,7 @@ Automove();
 function Automove (){
 	//console.log('automove');
 	clearInterval(autoMoveObj);
-	autoMoveObj = setInterval('GoDown()',keep);
+	autoMoveObj = setInterval(GoDown,keep);
 }
 
 //向右移动
@@ -71,7 +72,7 @@ function MoveFlag(flag){
 		if(adsview.scrollLeft >= firstlistwid){
 			//console.log('changeleft');
 			adsview.scrollLeft -= firstlistwid;
-			//console.log(adsview.scrollLeft)
+			//console.log(adsview.scrollLeft);
 		}
 	}
 }
@@ -90,10 +91,12 @@ function moveOrNot(flag){
 
 //移动
 function moveAction(){
-	console.log(com);
+	clearInterval(moveActionObj);
+	//console.log(com);
 	var comdis;//移动距离
 	if(com == 0){
 		lockMove = false;
+		clearInterval(moveActionObj);
 		return;
 	}
 	if(com < 0){ //右移动
@@ -105,7 +108,7 @@ function moveAction(){
 			com = 0;
 		}
 		adsview.scrollLeft -= comdis;
-		setTimeout('moveAction()',speed);
+		moveActionObj = setInterval(moveAction,speed);
 	}else{//左移动
 		if(com > Space){
 			com -= Space;
@@ -115,7 +118,7 @@ function moveAction(){
 			com = 0;
 		}
 		adsview.scrollLeft += comdis;
-		setTimeout('moveAction()',speed);
+		moveActionObj = setInterval(moveAction,speed);
 	}
 }
 

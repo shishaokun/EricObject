@@ -52,7 +52,7 @@ Carousel_factory.prototype = {
 	},
 	
 	GoUp: function(){//向右移动
-		consle.log('Go');
+		console.log('Go');
 		this._flag = 'r'
 		if(!MoveLock){
 			claerInterval(this.AutoMoveObj);
@@ -120,8 +120,7 @@ Carousel_factory.prototype = {
 			setTimeout('this.MoveAction()',this.Speed);
 		}
 	},
-	
-	
+		
 	ObjWid: function(){//获取移动对象的宽度
 		var objwidth = document.getElementById(this.objview).offsetWidth;
 		return objwidth;
@@ -143,9 +142,6 @@ Carousel_factory.prototype = {
 	},
 	
 };
-
-
-	
 
 function carousel_img(obj){
 	var carousel = new Carousel_factory();

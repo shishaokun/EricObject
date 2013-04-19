@@ -1,0 +1,66 @@
+﻿@Charset "utf-8";
+
+/******************************************
+ * Eric Tetris
+ *
+ * Copyright 2013，Eric
+ * 
+ * main.css
+******************************************/
+
+body {
+	height: 2000px;
+}
+
+.main {
+	overflow: hidden;
+	width: 80%;
+	margin: 0 auto;
+	background: gray;
+}
+
+#map {
+	width: 400px;
+	height: 600px;
+	float: left;
+	background: green;
+}
+
+#nextbox {
+	float: left;
+	width: 200px;
+	height: 200px;
+	background: red;
+}
+
+#scorce {
+	width: 200px;
+	height: 50px;
+	position: fixed;
+	bottom: 0;
+	background: red;
+}
+
+
+
+
+.a {
+	margin-top: 20px;
+	background: white;
+	width: 90%;
+	height: 100px;
+}
+
+.b {
+	background: gray;
+	width: 100px;
+	height: 200px;
+}
+
+.fix {
+	position: fixed;
+	top: 0;
+	background: gray;
+	width: 100px;
+	height: 200px;
+}
